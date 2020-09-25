@@ -41,14 +41,20 @@ def change_city(message):
 
     @bot.message_handler(content_types=["text"])
     def change_city_variable(message):
-        city = message.text
         try:
+            city = message.text
             observation = mgr.weather_at_place(city)
             w = observation.weather
             bot.send_message(message.chat.id, "Успешно!")
+            return city
 
         except:
             bot.send_message(message.chat.id, "Ошибка! Город введён неверно")
+
+
+#@bot.message_handler(commands=["get_city"])
+#def get_city(message):
+#    bot.send_message(message.chat.id, f"Текущий город: {change_city_variable()}")
 
 
 if __name__ == "__main__":
