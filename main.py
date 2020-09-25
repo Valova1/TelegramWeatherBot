@@ -18,7 +18,6 @@ owm = OWM(pyowm_token)
 mgr = owm.weather_manager()
 observation = mgr.weather_at_place("Moscow")
 w = observation.weather
-print(w)
 
 bot = telebot.TeleBot(telegram_bot_token)
 
@@ -46,7 +45,6 @@ def change_city(message):
             observation = mgr.weather_at_place(city)
             w = observation.weather
             bot.send_message(message.chat.id, "Успешно!")
-            return city
 
         except:
             bot.send_message(message.chat.id, "Ошибка! Город введён неверно")
