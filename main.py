@@ -69,5 +69,23 @@ def get_weather(message):
     pass
 
 
+@bot.message_handler(commands=["temp"])
+def get_temperature(message):
+    """ """
+    pass
+
+
+@bot.message_handler(commands=["wind"])
+def get_wind(message):
+    """ """
+    pass
+
+
+@bot.message_handler(commands=["humidity"])
+def get_humidity(message):
+    """ """
+    pass
+
+
 if __name__ == "__main__":
     bot.polling(none_stop=True)
