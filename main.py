@@ -14,15 +14,15 @@ help_message = """Python Weather Bot
 /wind - Узнать скорость ветра
 /humidity - Узнать влажность в регионе"""
 
+city = "Moscow"
+standart_city = "Moscow"  # Used to rollback in case of an error in choosing a city
+
 owm = OWM(pyowm_token)
 mgr = owm.weather_manager()
-observation = mgr.weather_at_place("Moscow")
+observation = mgr.weather_at_place(city)
 w = observation.weather
 
 bot = telebot.TeleBot(telegram_bot_token)
-
-city = "Moscow"
-
 
 @bot.message_handler(commands=["start"])
 def starting_the_bot(message):
@@ -54,7 +54,8 @@ def change_city(message):
 
         except:
             bot.send_message(message.chat.id, "Ошибка! Город введён неверно")
-
+            city = standart_city
+    
 
 @bot.message_handler(commands=["get_city"])
 def get_city(message):
