@@ -63,5 +63,11 @@ def get_city(message):
     bot.send_message(message.chat.id, f"Текущий город: {city}")
 
 
+@bot.message_handler(commands=["weather"])
+def get_weather(message):
+    """Function that displays the weather in the city"""
+    pass
+
+
 if __name__ == "__main__":
     bot.polling(none_stop=True)
