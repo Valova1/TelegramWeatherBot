@@ -9,4 +9,6 @@ pip install -r requirements.txt
 ```
 
 Перейдите в ```main.py``` и на 25 строке вставьте ваш токен
-```python main.py```
+```batch
+python main.py
+```
