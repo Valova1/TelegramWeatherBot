@@ -45,6 +45,8 @@ def change_city(message):
     def change_city_variable(message):
         """A function that modifies a city variable"""
         global city
+        global observation
+        global w
 
         try:
             city = message.text
@@ -66,7 +68,7 @@ def get_city(message):
 @bot.message_handler(commands=["weather"])
 def get_weather(message):
     """Function that displays the weather in the city"""
-    pass
+    print(w.temperature('celsius'))
 
 
 @bot.message_handler(commands=["temp"])
