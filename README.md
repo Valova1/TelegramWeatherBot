@@ -1,7 +1,7 @@
 # TelegramWeatherBot
 Telegram бот, выдающий прогноз погоды в введённом городе
 
-## Инструкция по установке:
+### Инструкция по установке:
 ```shell
 git clone https://github.com/NikitaKolotushkin/TelegramWeatherBot.git
 
