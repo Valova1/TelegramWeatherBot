@@ -3,8 +3,9 @@
 
 import telebot
 from pyowm import OWM
-from tokens import *
 
+from tokens import *
+from bot_messages import *
 
 help_message = """Python Weather Bot
 /get_city - Узнать текущий город
@@ -13,6 +14,9 @@ help_message = """Python Weather Bot
 /temp - Узнать температуру
 /wind - Узнать скорость ветра
 /humidity - Узнать влажность в регионе"""
+
+full_weather_info = f"""Полные сведения о погоде:
+"""
 
 city = "Moscow"
 standart_city = "Moscow"  # Used to rollback in case of an error in choosing a city
