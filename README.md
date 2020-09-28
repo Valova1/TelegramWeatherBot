@@ -25,3 +25,6 @@ python main.py
 # OR
 python3 main.py
 ```
+
+### Авторство
++ [Rensys](https://github.com/NikitaKolotushkin)
