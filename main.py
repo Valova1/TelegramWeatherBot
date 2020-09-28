@@ -77,19 +77,19 @@ def get_weather(message):
 
 @bot.message_handler(commands=["temp"])
 def get_temperature(message):
-    """ """
+    """Function that outputs temperature information"""
     pass
 
 
 @bot.message_handler(commands=["wind"])
 def get_wind(message):
-    """ """
+    """Function that displays information about the wind"""
     pass
 
 
 @bot.message_handler(commands=["humidity"])
 def get_humidity(message):
-    """ """
+    """Function that displays humidity information"""
     pass
 
 
