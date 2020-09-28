@@ -91,7 +91,13 @@ def get_wind(message):
 @bot.message_handler(commands=["humidity"])
 def get_humidity(message):
     """Function that displays humidity information"""
-    bot.send_message(message.chat.id, f"Атмосферная влажность в регионе: {w.humidity}%")
+    bot.send_message(message.chat.id, f"Атмосферная влажность: {w.humidity}%")
+
+
+@bot.message_handler(commands=["pressure"])
+def get_pressure(message):
+    """Function that displays humidity information"""
+    bot.send_message(message.chat.id, f"Атмосферное давление: ")
 
 
 if __name__ == "__main__":
