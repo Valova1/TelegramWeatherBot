@@ -5,7 +5,6 @@ import telebot
 from pyowm import OWM
 
 from tokens import *
-from bot_messages import *
 
 help_message = """Python Weather Bot
 /get_city - Узнать текущий город
@@ -90,7 +89,7 @@ def get_wind(message):
 @bot.message_handler(commands=["humidity"])
 def get_humidity(message):
     """Function that displays humidity information"""
-    pass
+    bot.send_message(message.chat.id, f"Атмосферная влажность в регионе: {w.humidity}%")
 
 
 if __name__ == "__main__":
