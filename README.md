@@ -15,7 +15,7 @@ cd TelegramWeatherBot
 pip install -r requirements.txt
 ```
 
-Перейдите в ```main.py``` и на 25 строке вставьте ваш токен
+Перейдите в ```main.py``` и на строке вставьте ваш токен
 ```shell
 python main.py
 # OR
