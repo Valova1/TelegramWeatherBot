@@ -6,6 +6,7 @@ from pyowm import OWM
 
 from tokens import *
 
+
 help_message = """Python Weather Bot
 /get_city - Узнать текущий город
 /change_city - Сменить город
@@ -13,14 +14,6 @@ help_message = """Python Weather Bot
 /temp - Узнать температуру
 /humidity - Узнать влажность в регионе
 /pressure - Узнать атмосферное давление"""
-
-
-full_weather_info = f"""Полные сведения о погоде:
-Регион: 
-Температура: 
-Давление: 
-Влажность:
-"""
 
 city = "Moscow"
 standart_city = "Moscow"  # Used to rollback in case of an error in choosing a city
@@ -31,6 +24,15 @@ observation = mgr.weather_at_place(city)
 w = observation.weather
 
 bot = telebot.TeleBot(telegram_bot_token)
+
+full_weather_info = f"""Полные сведения о погоде:
+Регион: {city} 
+Температура: {w.temperature('celsius').get("temp")}°C
+Мин. температура: {w.temperature('celsius').get("temp_min")}°C
+Макс. температура: {w.temperature('celsius').get("temp_max")}°C
+Давление: {int(w.pressure.get("press") / 1.333)} мм рт. ст.
+Влажность: {w.humidity}%
+"""
 
 @bot.message_handler(commands=["start"])
 def starting_the_bot(message):
@@ -74,7 +76,7 @@ def get_city(message):
 @bot.message_handler(commands=["weather"])
 def get_weather(message):
     """Function that displays the weather in the city"""
-    pass
+    bot.send_message(message.chat.id, full_weather_info)
 
 
 @bot.message_handler(commands=["temp"])
