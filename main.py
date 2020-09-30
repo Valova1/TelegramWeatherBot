@@ -46,9 +46,7 @@ def change_city(message):
     @bot.message_handler(content_types=["text"])
     def change_city_variable(message):
         """A function that modifies a city variable"""
-        global city
-        global observation
-        global w
+        global city, observation, w
 
         try:
             city = message.text
