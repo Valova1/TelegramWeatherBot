@@ -11,7 +11,6 @@ help_message = """Python Weather Bot
 /change_city - Сменить город
 /weather - Получить полные сведения о погоде в регионе
 /temp - Узнать температуру
-/wind - Узнать скорость ветра
 /humidity - Узнать влажность в регионе
 /pressure - Узнать атмосферное давление"""
 
@@ -80,10 +79,10 @@ def get_temperature(message):
     pass
 
 
-@bot.message_handler(commands=["wind"])
-def get_wind(message):
-    """Function that displays information about the wind"""
-    pass
+#@bot.message_handler(commands=["wind"])
+#def get_wind(message):
+#    """Function that displays information about the wind"""
+#    bot.send_message(message.chat.id, f"{w.wind}")
 
 
 @bot.message_handler(commands=["humidity"])
