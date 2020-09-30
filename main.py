@@ -25,14 +25,6 @@ w = observation.weather
 
 bot = telebot.TeleBot(telegram_bot_token)
 
-full_weather_info = f"""Полные сведения о погоде:
-Регион: {city} 
-Температура: {w.temperature('celsius').get("temp")}°C
-Мин. температура: {w.temperature('celsius').get("temp_min")}°C
-Макс. температура: {w.temperature('celsius').get("temp_max")}°C
-Давление: {int(w.pressure.get("press") / 1.333)} мм рт. ст.
-Влажность: {w.humidity}%
-"""
 
 @bot.message_handler(commands=["start"])
 def starting_the_bot(message):
@@ -54,7 +46,9 @@ def change_city(message):
     @bot.message_handler(content_types=["text"])
     def change_city_variable(message):
         """A function that modifies a city variable"""
-        global city, observation, w
+        global city
+        global observation
+        global w
 
         try:
             city = message.text
@@ -103,6 +97,16 @@ def get_pressure(message):
     bot.send_message(message.chat.id, 
             "Атмосферное давление: {} мм рт. ст.".format(int(w.pressure.get("press") / 1.333)))
 
+full_weather_info = f"""Полные сведения о погоде:
+Регион: {city} 
+Температура: {w.temperature('celsius').get("temp")}°C
+Мин. температура: {w.temperature('celsius').get("temp_min")}°C
+Макс. температура: {w.temperature('celsius').get("temp_max")}°C
+Давление: {int(w.pressure.get("press") / 1.333)} мм рт. ст.
+Влажность: {w.humidity}%
+Облачность: {w.clouds}%
+Статус: {w.detailed_status}
+"""
 
 if __name__ == "__main__":
     bot.polling(none_stop=True)
