@@ -16,6 +16,10 @@ help_message = """Python Weather Bot
 
 
 full_weather_info = f"""Полные сведения о погоде:
+Регион: 
+Температура: 
+Давление: 
+Влажность:
 """
 
 city = "Moscow"
@@ -70,13 +74,13 @@ def get_city(message):
 @bot.message_handler(commands=["weather"])
 def get_weather(message):
     """Function that displays the weather in the city"""
-    print(w.temperature('celsius'))
+    pass
 
 
 @bot.message_handler(commands=["temp"])
 def get_temperature(message):
     """Function that outputs temperature information"""
-    pass
+    print(w.temperature('celsius'))
 
 
 #@bot.message_handler(commands=["wind"])
