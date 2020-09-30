@@ -97,7 +97,9 @@ def get_pressure(message):
     bot.send_message(message.chat.id, 
             "Атмосферное давление: {} мм рт. ст.".format(int(w.pressure.get("press") / 1.333)))
 
-full_weather_info = f"""Полные сведения о погоде:
+full_weather_info = f"""
+Полные сведения о погоде:
+
 Регион: {city} 
 Температура: {w.temperature('celsius').get("temp")}°C
 Мин. температура: {w.temperature('celsius').get("temp_min")}°C
