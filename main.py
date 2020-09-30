@@ -95,7 +95,8 @@ def get_humidity(message):
 def get_pressure(message):
     """Function that displays humidity information"""
     bot.send_message(message.chat.id, 
-            "Атмосферное давление: {} мм рт. ст.".format(int(w.pressure.get("press") / 1.333)))
+            "Атмосферное давление: {} мм рт. ст.".format(int(w.pressure.get("press") / 1.333))
+    )
 
 full_weather_info = f"""
 Полные сведения о погоде:
