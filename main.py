@@ -86,7 +86,10 @@ def get_weather(message):
 @bot.message_handler(commands=["temp"])
 def get_temperature(message):
     """Function that outputs temperature information"""
-    print(w.temperature('celsius'))
+    bot.send_message(message.chat.id, 
+            f"""Температура: {w.temperature('celsius').get('temp')}°C
+Ощущается как: {w.temperature('celsius').get('feels_like')}°C"""
+    )
 
 
 @bot.message_handler(commands=["humidity"])
