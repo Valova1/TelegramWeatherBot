@@ -68,14 +68,25 @@ def get_city(message):
 @bot.message_handler(commands=["weather"])
 def get_weather(message):
     """Function that displays the weather in the city"""
-    bot.send_message(message.chat.id, full_weather_info)
+    bot.send_message(message.chat.id,
+    f"""Полные сведения о погоде:
+
+Регион: {city} 
+Температура: {w.temperature('celsius').get("temp")}°C
+Мин. температура: {w.temperature('celsius').get("temp_min")}°C
+Макс. температура: {w.temperature('celsius').get("temp_max")}°C
+Давление: {int(w.pressure.get("press") / 1.333)} мм рт. ст.
+Влажность: {w.humidity}%
+Облачность: {w.clouds}%
+Статус: {w.detailed_status}
+"""
+    )
 
 
 @bot.message_handler(commands=["temp"])
 def get_temperature(message):
     """Function that outputs temperature information"""
     print(w.temperature('celsius'))
-
 
 
 @bot.message_handler(commands=["humidity"])
@@ -91,18 +102,6 @@ def get_pressure(message):
             "Атмосферное давление: {} мм рт. ст.".format(int(w.pressure.get("press") / 1.333))
     )
 
-full_weather_info = f"""
-Полные сведения о погоде:
-
-Регион: {city} 
-Температура: {w.temperature('celsius').get("temp")}°C
-Мин. температура: {w.temperature('celsius').get("temp_min")}°C
-Макс. температура: {w.temperature('celsius').get("temp_max")}°C
-Давление: {int(w.pressure.get("press") / 1.333)} мм рт. ст.
-Влажность: {w.humidity}%
-Облачность: {w.clouds}%
-Статус: {w.detailed_status}
-"""
 
 if __name__ == "__main__":
     bot.polling(none_stop=True)
