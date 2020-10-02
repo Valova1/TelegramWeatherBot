@@ -29,19 +29,28 @@ bot = telebot.TeleBot(telegram_bot_token)
 @bot.message_handler(commands=["start"])
 def starting_the_bot(message):
     """Bot launch function"""
-    bot.send_message(message.chat.id, "Поздравляю, вы запустили бота. \nЧтобы получить помощь, введите /help")
-
+    bot.send_message(
+            message.chat.id,
+            "Поздравляю, вы запустили бота. \nЧтобы получить помощь, введите /help"
+    )
 
 @bot.message_handler(commands=["help"])
 def bot_helper_message(message):
     """Function that displays a help message"""
-    bot.send_message(message.chat.id, help_message)
+    bot.send_message(
+            message.chat.id, 
+            help_message
+    )
 
 
 @bot.message_handler(commands=["change_city"])
 def change_city(message):
     """A function that changes the city"""
-    bot.send_message(message.chat.id, "Введите название города: ")
+    bot.send_message(
+            message.chat.id, 
+            "Введите название города: "
+    )
+
 
     @bot.message_handler(content_types=["text"])
     def change_city_variable(message):
@@ -62,7 +71,10 @@ def change_city(message):
 @bot.message_handler(commands=["get_city"])
 def get_city(message):
     """Function that displays the current city"""
-    bot.send_message(message.chat.id, f"Текущий город: {city}")
+    bot.send_message(
+            message.chat.id, 
+            f"Текущий город: {city}"
+    )
 
 
 @bot.message_handler(commands=["weather"])
@@ -95,7 +107,10 @@ def get_temperature(message):
 @bot.message_handler(commands=["humidity"])
 def get_humidity(message):
     """Function that displays humidity information"""
-    bot.send_message(message.chat.id, f"Атмосферная влажность: {w.humidity}%")
+    bot.send_message(
+            message.chat.id, 
+            f"Атмосферная влажность: {w.humidity}%"
+    )
 
 
 @bot.message_handler(commands=["pressure"])
