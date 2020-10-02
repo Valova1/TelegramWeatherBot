@@ -77,11 +77,6 @@ def get_temperature(message):
     print(w.temperature('celsius'))
 
 
-#@bot.message_handler(commands=["wind"])
-#def get_wind(message):
-#    """Function that displays information about the wind"""
-#    bot.send_message(message.chat.id, f"{w.wind}")
-
 
 @bot.message_handler(commands=["humidity"])
 def get_humidity(message):
