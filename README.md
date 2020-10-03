@@ -1,4 +1,4 @@
-# TelegramWeatherBot (В разработке)
+# TelegramWeatherBot 
 Telegram бот, выдающий прогноз погоды в введённом городе
 
 ![Screenshot](img/Screenshot.png)
