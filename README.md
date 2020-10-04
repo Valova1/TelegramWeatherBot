@@ -31,5 +31,5 @@ python3 main.py
 ### Авторство
 + [Rensys](https://github.com/NikitaKolotushkin)
 
-## License
+## Лицензия
 Проект находится под лицензией [MIT License](LICENSE)
