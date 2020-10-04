@@ -30,3 +30,6 @@ python3 main.py
 
 ### Авторство
 + [Rensys](https://github.com/NikitaKolotushkin)
+
+## License
+Проект находится под лицензией [MIT License](LICENSE)
