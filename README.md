@@ -1,7 +1,7 @@
 # TelegramWeatherBot 
 Telegram бот, выдающий прогноз погоды в введённом городе
 
-![Screenshot](img/Screenshot.png)
+![Screenshot](img/Screenshot__v01.png)
 
 ### Используемые технологии:
 + PyOWM
