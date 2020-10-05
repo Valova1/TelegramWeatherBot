@@ -3,6 +3,7 @@
 
 import telebot
 from pyowm import OWM
+from telebot import types
 
 from tokens import *
 
@@ -119,6 +120,19 @@ def get_pressure(message):
     bot.send_message(message.chat.id, 
             "Атмосферное давление: {} мм рт. ст.".format(int(w.pressure.get("press") / 1.333))
     )
+
+
+@bot.message_handler(commands=["keyboard"])
+def show_keyboard(message):
+    keyboard = types.ReplyKeyboardMarkup(True)
+    keyboard.row("Показать возможности")
+    bot.send_message(message.chat.id, f"⚡️ Привет, <b>{message.from_user.first_name}</b>", reply_markup=keyboard, parse_mode='HTML')
+
+
+@bot.message_handler(content_types=["text"])
+def show_answer(message):
+    if message.text == "Показать возможности":
+        bot.send_message(message.chat.id, help_message)
 
 
 if __name__ == "__main__":
