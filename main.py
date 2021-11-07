@@ -19,12 +19,12 @@ help_message = """Python Weather Bot
 city = "Moscow"
 standart_city = "Moscow"  # Used to rollback in case of an error in choosing a city
 
-owm = OWM(2b94c840f10e17da24b1edf36b4a950f)
+owm = OWM('2b94c840f10e17da24b1edf36b4a950f')
 mgr = owm.weather_manager()
 observation = mgr.weather_at_place(city)
 w = observation.weather
 
-bot = telebot.TeleBot(2050928873:AAGjWHxgCJQU5Hh1Z2KP4uAn14mr4plgRcQ)
+bot = telebot.TeleBot('2050928873:AAGjWHxgCJQU5Hh1Z2KP4uAn14mr4plgRcQ')
 
 
 @bot.message_handler(commands=["start"])
